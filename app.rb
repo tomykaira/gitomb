@@ -1,4 +1,5 @@
 require 'milkode/cdweb/app'
+require 'repository_handler'
 
 MY_VIEWS = File.dirname(__FILE__) + '/views'
 
@@ -11,4 +12,9 @@ end
 
 def project_list
   Database.instance.fileList('/')
+end
+
+post '/git-append' do
+  RepositoryHandler.append(params[:url])
+  redirect '/'
 end

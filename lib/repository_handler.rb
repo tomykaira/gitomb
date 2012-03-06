@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+#
+# @file repository_handler
+# @brief 登録された git リポジトリを一次保存、ダウンロード、登録する
+# @author tomykaira
+# @date   2012/02/09
+
+require 'milkode/common/dbdir'
+
+module Milkode
+  module RepositoryHandler
+    GIT_DIR = Dbdir.default_dir + '/git_repos'
+
+    class << self
+      def append(repo)
+        Thread.new do
+          puts "Thread started: #{ repo }"
+          name_match = repo.match(/([^\/]*)\/?\.git$/) || repo.match(/([^\/]*)$/)
+          target_dir = GIT_DIR + '/' + name_match[1]
+          puts `git clone -q --recursive #{repo} #{target_dir}`
+          puts `milk add #{target_dir}`
+        end
+      end
+    end
+  end
+end
