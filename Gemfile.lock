@@ -2,7 +2,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.2.7)
-    archive-zip (0.4.0)
+    archive-zip (0.5.0)
       io-like (>= 0.3.0)
     coderay (0.9.8)
     daemons (1.1.8)
@@ -14,7 +14,7 @@ GEM
     json (1.6.5)
     launchy (2.0.5)
       addressable (~> 2.2.6)
-    milkode (0.4.0)
+    milkode (0.5.0)
       archive-zip (>= 0.4.0)
       coderay (= 0.9.8)
       haml (>= 3.1.2)
@@ -27,7 +27,7 @@ GEM
       sinatra (>= 1.2.6)
       termcolor (>= 1.2.0)
       thin (>= 1.2.10)
-    nokogiri (1.5.0)
+    nokogiri (1.5.2)
     pkg-config (1.1.3)
     rack (1.4.1)
     rack-protection (1.2.0)
@@ -53,7 +53,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.0.22)
-  milkode (= 0.4.0)
+  milkode (= 0.5.0)
   rake
   sinatra
