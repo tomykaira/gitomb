@@ -14,6 +14,27 @@ def project_list
   Database.instance.fileList('/')
 end
 
+def init_config
+  fname = File.join(Dbdir.default_dir, "milkweb.yaml")
+
+  return if File.exist?(fname)
+
+  File.open(fname, "w") do |f|
+    f.write <<EOF
+---
+:home_title : "gitomb"
+:home_icon : "https://raw.github.com/tomykaira/gitomb/master/gitomb.png"
+
+:header_title: "gitomb"
+:header_icon : "https://raw.github.com/tomykaira/gitomb/master/gitomb.png"
+
+:display_about_milkode: true
+EOF
+  end
+end
+
+init_config # run on startup
+
 post '/git-append' do
   RepositoryHandler.append(params[:url])
   redirect '/'
