@@ -2,4 +2,4 @@ source :rubygems
 
 gem 'sinatra'
 gem 'rake'
-gem 'milkode', '0.5.0'
+gem 'milkode', '0.6.0'
