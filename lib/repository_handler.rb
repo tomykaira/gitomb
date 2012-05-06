@@ -15,10 +15,14 @@ module Milkode
       def append(repo)
         Thread.new do
           puts "Thread started: #{ repo }"
-          name_match = repo.match(/([^\/]*)\/?\.git$/) || repo.match(/([^\/]*)$/)
-          target_dir = GIT_DIR + '/' + name_match[1]
-          puts `git clone -q --recursive #{repo} #{target_dir}`
-          puts `milk add #{target_dir}`
+          puts `milk add #{repo}`
+        end
+      end
+
+      def update_all
+        Thread.new do
+          puts "Thread started: update"
+          puts `milk update --all`
         end
       end
     end
