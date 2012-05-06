@@ -39,3 +39,8 @@ post '/git-append' do
   RepositoryHandler.append(params[:url])
   redirect '/'
 end
+
+get '/update-all' do
+  RepositoryHandler.update_all
+  redirect '/'
+end

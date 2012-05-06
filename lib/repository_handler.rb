@@ -18,6 +18,13 @@ module Milkode
           puts `milk add #{repo}`
         end
       end
+
+      def update_all
+        Thread.new do
+          puts "Thread started: update"
+          puts `milk update --all`
+        end
+      end
     end
   end
 end
